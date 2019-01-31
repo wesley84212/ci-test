@@ -1,5 +1,17 @@
 $(document).ready(function () {
+
     $('#enter').click(function () {
-        alert('測試');
+
+        $.ajax({
+            url: base_url + 'login/get_user/',
+            type: 'POST',
+            data: {
+                name: 'wesley',
+                password: '0000'
+            },
+            success: function (data) {
+                console.log(data);
+            }
+        });
     });
 });
