@@ -14,23 +14,26 @@ class Jquery_loader
     {
         $this->_CI->load->config('ver');
         $version = $this->_CI->config->item('ver');
-
+        $package_array = [];
         if (!isset($version[$package])) {
             exit('no file search');
+        } else {
+            $folder = 'api/' . $package;
+            $package_ver = $version[$package];
+            $file_path = array(
+                'package' => $folder . '/' . $package_ver . '/',
+            );
+            foreach ($file_path as $value) {
+
+                array_push($package_array, $value);
+                echo '<script src="' . base_url() . $value . $package . '.min.js" ></script>';
+            }
         }
-        $folder = 'api/' . $package;
-        $package_ver = $version[$package];
-        $file_path = array(
-            'package' => $folder . '/' . $package_ver . '/',
-        );
-        foreach ($file_path as $value) {
-            echo '<script src="' . base_url() . $value . $package . '.min.js" ></script>';
-        }
+        return ($package_array);
     }
-    
-    public function js($js_file)
+
+    public function js_loader($js_file)
     {
-        //$folder = 'js/' . $js_file . '.js';
         $folder = 'js/';
         $file_path = array(
             'file' => $folder . $js_file . '.js',
@@ -38,10 +41,10 @@ class Jquery_loader
         foreach ($file_path as $value) {
             echo '<script src="' . base_url() . $value . '" ></script>';
         }
-
+        return 'success';
     }
 
-    public function css($css_file)
+    public function css_loader($css_file)
     {
         $folder = 'css/';
         $file_path = array(
@@ -50,6 +53,7 @@ class Jquery_loader
         foreach ($file_path as $value) {
             echo '<link rel="stylecheet" href="' . base_url() . $value . '" />';
         }
+        return 'success';
     }
-    
+
 }

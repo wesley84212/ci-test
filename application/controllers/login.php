@@ -7,10 +7,12 @@ class Login extends CI_Controller
     public function get_user()
     {
         $input = $this->input->post();
+        print_r($input);
         if ($input['name'] === 'wesley' && $input['password'] === '0000') {
-            $this->user['0'] = $input;
             echo '200';
+
         } else {
+            header("Location: " . base_url() . "");
             echo '400';
         }
 
