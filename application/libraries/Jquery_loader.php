@@ -51,4 +51,5 @@ class Jquery_loader
             echo '<link rel="stylecheet" href="' . base_url() . $value . '" />';
         }
     }
+    
 }

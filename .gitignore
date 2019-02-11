@@ -1,6 +1,7 @@
 .DS_Store
 
 application/cache/*
+application/config/database.php
 !application/cache/index.html
 
 application/logs/*
@@ -9,6 +10,7 @@ application/logs/*
 !application/*/.htaccess
 
 composer.lock
+.htaccess
 
 user_guide_src/build/*
 user_guide_src/cilexer/build/*
@@ -30,3 +32,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /tests/tests/
 /tests/results/
 /tests/_ci_phpunit_test/*
+/test/build/*
