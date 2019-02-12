@@ -7,19 +7,28 @@ class Login extends CI_Controller
     public function get_user()
     {
         $input = $this->input->post();
-        print_r($input);
-        if ($input['name'] === 'wesley' && $input['password'] === '0000') {
-            echo '200';
 
+        $this->load->model('login_model');
+        $result = $this->login_model->get_user($input);
+
+        if ($result['status'] === '200') {
+            header("Location: " . base_url() . "login/login_page");
         } else {
-            header("Location: " . base_url() . "");
-            echo '400';
+            header("Location: " . base_url());
+            echo json_encode($result);
         }
 
     }
-    public function user_count()
+    public function login_page()
     {
-        return sizeof($this->user);
+        $this->load->view('login_page');
     }
 
+    public function register()
+    {
+        $input = $this->input->post();
+        $this->load->model('login_model');
+        $result = $this->login_model->register($input);
+        echo $result;
+    }
 }

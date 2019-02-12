@@ -15,17 +15,29 @@ class Jquery_loader_test extends TestCase
         $expected = array(
             0 => 'api/jquery/3.1.1/',
         );
-        foreach ($actual as $category) {
-            $this->assertEquals($expected[0], $actual[0]);
-        }
+
+        $this->assertEquals($expected[0], $actual[0]);
+    }
+
+    public function test_js_loader()
+    {
+
+        $actual = $this->obj->js_loader('js_test');
+        $expected = array(
+            0 => 'js/js_test.js',
+        );
+
+        $this->assertEquals($expected[0], $actual[0]);
 
     }
 
-    // public function test_js_loader()
-    // {
-    //     $actual = $this->obj->js_loader('test');
-    //     $this->assertContains('success', $actual);
-
-    // }
+    public function test_css_loader()
+    {
+        $actual = $this->obj->css_loader('css_test');
+        $expected = array(
+            0 => 'css/css_test.css',
+        );
+        $this->assertEquals($expected[0], $actual[0]);
+    }
 
 }
