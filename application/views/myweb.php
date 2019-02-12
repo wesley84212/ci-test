@@ -45,7 +45,7 @@ $this->jquery_loader->css_loader('myweb');
 <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="registered_label">Modal title</h5>
+        <h5 class="modal-title" id="registered_label">註冊</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     </button>
                 </div>
@@ -59,7 +59,7 @@ $this->jquery_loader->css_loader('myweb');
                     <div class="form-group">
                             <input tabindex="3" id="reg_email" name="email" type="email" placeholder="請輸入聯絡信箱" class="form-control input-md" required="">
                     </div>
-                    <div class="form-group" id="error_msg">
+                    <div class="form-group" id="reg_error">
                     </div>
                 </div>
                 <div class="modal-footer">
