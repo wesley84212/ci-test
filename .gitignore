@@ -33,4 +33,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /tests/tests/
 /tests/results/
 /tests/_ci_phpunit_test/*
-/test/build/*
+/tests/build/*
