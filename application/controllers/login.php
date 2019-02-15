@@ -21,8 +21,13 @@ class Login extends CI_Controller
 
     public function login_page()
     {
+        
         if (isset($this->session->username)) {
-            $this->load->view('login_page');
+            $user = $this->session->username;
+            $this->load->model('add_report_model');
+            $Field=$this->add_report_model->get_report_list($user);
+            $data['field']=$Field;
+            $this->load->view('login_page', $data);
         } else {
             header("Location: " . base_url());
         }
