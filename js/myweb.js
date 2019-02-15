@@ -18,8 +18,23 @@ $(document).ready(function () {
                     alert('註冊成功');
                     $('#registered').modal('hide');
                 } else {
-                    $('#reg_error').html(data);
+                    alert(data);
                 }
+            },
+            complete: function () {
+                var html = '';
+                html += '<div class="form-group">';
+                html += '<input tabindex="2" id="reg_account" name="name" type="text" placeholder="請輸入帳號" class="form-control input-md" value="" required="">';
+                html += '</div>';
+                html += '<div class="form-group">';
+                html += '<input tabindex="3" id="reg_password" name="password" type="password" placeholder="請輸入密碼" class="form-control input-md" required="">';
+                html += '</div>';
+                html += '<div class="form-group">';
+                html += '<input tabindex="3" id="reg_email" name="email" type="email" placeholder="請輸入聯絡信箱" class="form-control input-md" required="">';
+                html += '</div>';
+                html += '<div class="form-group" id="reg_error">';
+                html += '</div>';
+                $('.modal-body').html(html);
             }
         })
     });

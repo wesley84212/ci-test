@@ -32,14 +32,21 @@ class Login_model extends CI_Model
     public function register($input)
     {
         $this->load->database();
-        $this->db->trans_start();
-        $this->db->insert('user_information', $input);
-        $this->db->trans_complete();
-        if ($this->db->trans_status() === false) {
-            return 'error';
+        $this->db->select('name');
+        $this->db->from('user_information');
+        $this->db->where('name', $input['name']);
+        $query = $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            echo '此帳號已使用';
         } else {
-            return 'success';
+            $this->db->trans_start();
+            $this->db->insert('user_information', $input);
+            $this->db->trans_complete();
+            if ($this->db->trans_status() === false) {
+                return 'error';
+            } else {
+                return 'success';
+            }
         }
-
     }
 }

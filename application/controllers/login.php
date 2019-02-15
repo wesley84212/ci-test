@@ -10,7 +10,6 @@ class Login extends CI_Controller
 
         $this->load->model('login_model');
         $result = $this->login_model->get_user($input);
-
         if ($result['status'] === '200') {
             header("Location: " . base_url() . "login/login_page");
         } else {
@@ -19,9 +18,14 @@ class Login extends CI_Controller
         }
 
     }
+
     public function login_page()
     {
-        $this->load->view('login_page');
+        if (isset($this->session->username)) {
+            $this->load->view('login_page');
+        } else {
+            header("Location: " . base_url());
+        }
     }
 
     public function register()
