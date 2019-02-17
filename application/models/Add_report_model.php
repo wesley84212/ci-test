@@ -62,5 +62,12 @@ class Add_report_model extends CI_Model
                 echo 'success';
             }
     }
+
+    public function delete_report($input)
+    {
+        $this->load->database();
+        $this->db->delete('report',$input);
+        echo 'success';
+    }
         
 }

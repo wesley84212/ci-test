@@ -22,12 +22,19 @@ class Login extends CI_Controller
     public function login_page()
     {
         
-        if (isset($this->session->username)) {
-            $user = $this->session->username;
-            $this->load->model('add_report_model');
-            $Field=$this->add_report_model->get_report_list($user);
-            $data['field']=$Field;
-            $this->load->view('login_page', $data);
+        if (isset($this->session->userinfo)) {
+            $user = $this->session->userinfo;
+            if($user['perm']==='1')
+            {
+               $this->load->view('sueruper_page');
+            }else if ($user['perm']==='0')
+            {
+                $this->load->model('add_report_model');
+                $Field=$this->add_report_model->get_report_list($user['name']);
+                $data['field']=$Field;
+                $this->load->view('login_page', $data);
+            }
+           
         } else {
             header("Location: " . base_url());
         }

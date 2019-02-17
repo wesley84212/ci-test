@@ -15,8 +15,13 @@ class Login_model extends CI_Model
 
         $query = $this->db->get();
         if (($query->num_rows()) > 0) {
-            $this->session->username = $array['name'];
-            //$this->session->has_userdata('username', $array['name']);
+            foreach($query->result() as $row){
+                $this->session->userinfo = array(
+                    'name'=>$row->name,
+                    'perm'=>$row->perm,
+                );
+            }
+            
             $result = array(
                 'status' => '200',
             );

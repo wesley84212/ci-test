@@ -30,4 +30,11 @@ class Add_report extends CI_Controller
         $this->load->model('add_report_model');
         $result = $this->add_report_model->insert_report($input);
     }
+
+    public function delete_report()
+    {
+        $input =$this->input->post();
+        $this->load->model('add_report_model');
+        $result=$this->add_report_model->delete_report($input);
+    }
 }

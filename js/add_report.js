@@ -32,6 +32,11 @@ $(document).ready(function ()
         insert_report();
     });
 
+    $('#delete').click(function()
+    {
+        delete_report();
+    });
+
 });
 
 function update_report()
@@ -76,6 +81,27 @@ function insert_report ()
         success : function (data){
             if(data==='success'){
                 alert('新增成功')
+                location.reload();
+            }
+        }
+    });
+}
+
+function delete_report()
+{
+    var report_name = $('#report_list').val();
+    var owner = $('#user').text();
+    $.ajax({
+        url:base_url+'add_report/delete_report',
+        type:'post',
+        datatype:'json',
+        data : {
+            'name' :report_name,
+            'owner' : owner,
+        },
+        success :function (data){
+            if(data==='success'){
+                alert('刪除成功')
                 location.reload();
             }
         }

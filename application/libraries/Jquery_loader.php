@@ -59,7 +59,7 @@ class Jquery_loader
         );
         foreach ($file_path as $value) {
             array_push($css_loader_array, $value);
-            echo '<link rel="stylecheet" href="' . base_url() . $value . '" />';
+            echo '<link rel="stylecheet" href="' . base_url() . $value . '" type="text/css">';
         }
         return ($css_loader_array);
     }

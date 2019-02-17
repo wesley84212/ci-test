@@ -25,7 +25,7 @@ $this->jquery_loader->css_loader('login_page');
 
 <body>
    <div id="banner">
-       <div id="info">歡迎<span id="user"><?php echo $this->session->username ?></span>
+       <div id="info">歡迎<span id="user"><?php echo ($this->session->userinfo['name']) ?></span>
        <button type="submit" class="btn btn-primary" id="logout">登出</button>
     </div>
        <select id="report_list">
@@ -45,7 +45,6 @@ $this->jquery_loader->css_loader('login_page');
 <button type="submit" class="btn btn-primary" id="save" data-toggle="modal" data-target="#inset_report">新增</button>
 <button type="submit" class="btn btn-primary" id="update">修改</button>
 <button type="submit" class="btn btn-primary" id="delete">刪除</button>
-
 <!--inset report Modal -->
 <div class="modal fade" id="inset_report" taindex="-1" role="dialog" aria-labelledby="inset_report_label" aria-hidden="true">
 <div class="modal-dialog" role="document">
